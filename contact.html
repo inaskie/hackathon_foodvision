@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - FoodVision 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.png" alt="FoodVision" class="logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="concept.html" class="nav-link">Concept</a></li>
+                <li><a href="origin.html" class="nav-link">Origin</a></li>
+                <li><a href="Fulda.html" class="nav-link">Fulda</a></li>
+                <li><a href="contact.html" class="nav-link active">Apply</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="content-section" style="padding-top: 120px;">
+        <!-- Decoratieve cirkels -->
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Join FoodVision 2026</h1>
+                <div class="title-underline"></div>
+                <p class="page-subtitle" style="font-size: 1.2rem; color: var(--gray-medium); max-width: 800px; margin: 1.5rem auto 0;">
+                    Apply to represent your country in the first edition of Europe's culinary celebration in Fulda, Germany
+                </p>
+            </div>
+
+            <!-- Application Type Selection -->
+            <div class="application-types">
+                <div class="type-card" onclick="showForm('participant')">
+                    <div class="type-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Participant Application</h3>
+                    <p>Apply to compete and represent your country</p>
+                    <button class="type-button">Apply as Participant</button>
+                </div>
+
+                <div class="type-card" onclick="showForm('partner')">
+                    <div class="type-icon" style="color: var(--pink);">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Partner Inquiry</h3>
+                    <p>Become a sponsor or media partner</p>
+                    <button class="type-button">Partner With Us</button>
+                </div>
+
+                <div class="type-card" onclick="showForm('general')">
+                    <div class="type-icon" style="color: var(--yellow);">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>General Contact</h3>
+                    <p>Questions, feedback, or other inquiries</p>
+                    <button class="type-button">Contact Us</button>
+                </div>
+            </div>
+
+            <!-- Participant Application Form -->
+            <div id="participant-form" class="application-form" style="display: none;">
+                <div class="form-header">
+                    <h2>Participant Application Form</h2>
+                    <p>Complete your application to represent your country at FoodVision 2026</p>
+                </div>
+
+                <form id="participantForm" onsubmit="handleSubmit(event, 'participant')">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">Personal Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth *</label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nationality">Nationality *</label>
+                                <select id="nationality" name="nationality" required>
+                                    <option value="">Select your country</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Netherlands">Netherlands</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="Hungary">Hungary</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Portugal">Portugal</option>
+                                    <option value="Latvia">Latvia</option>
+                                    <option value="Finland">Finland</option>
+                                    <option value="Romania">Romania</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">Contact Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+31 6 12345678">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City of Residence *</label>
+                                <input type="text" id="city" name="city" required placeholder="Enter your city">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Full Address</label>
+                            <input type="text" id="address" name="address" placeholder="Street, number, postal code">
+                        </div>
+                    </div>
+
+                    <!-- Culinary Background -->
+                    <div class="form-section">
+                        <h3 class="section-title">Culinary Background</h3>
+                        
+                        <div class="form-group">
+                            <label for="culinaryStatus">Your Culinary Status *</label>
+                            <select id="culinaryStatus" name="culinaryStatus" required>
+                                <option value="">Select your status</option>
+                                <option value="professional-chef">Professional Chef</option>
+                                <option value="home-cook">Home Cook / Food Enthusiast</option>
+                                <option value="culinary-student">Culinary Student</option>
+                                <option value="food-blogger">Food Blogger / Content Creator</option>
+                                <option value="restaurant-owner">Restaurant Owner</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Years of Cooking Experience *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select experience level</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="11-15">11-15 years</option>
+                                <option value="15+">15+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialty">Culinary Specialty / Cuisine Type *</label>
+                            <input type="text" id="specialty" name="specialty" required placeholder="e.g., Traditional Dutch cuisine, Modern fusion, Pastry, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="achievements">Notable Achievements or Awards</label>
+                            <textarea id="achievements" name="achievements" rows="4" placeholder="List any culinary competitions, awards, publications, or notable experiences (optional)"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Social Media & Portfolio -->
+                    <div class="form-section">
+                        <h3 class="section-title">Online Presence</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="instagram">Instagram Handle</label>
+                                <input type="text" id="instagram" name="instagram" placeholder="@yourhandle">
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website / Portfolio</label>
+                                <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="videoLink">Video Presentation Link</label>
+                            <input type="url" id="videoLink" name="videoLink" placeholder="YouTube, Vimeo, or other video platform link">
+                            <small class="field-note">Optional: Share a video introducing yourself and your culinary style (2-3 minutes recommended)</small>
+                        </div>
+                    </div>
+
+                    <!-- Signature Dish -->
+                    <div class="form-section">
+                        <h3 class="section-title">Your Signature Dish</h3>
+                        
+                        <div class="form-group">
+                            <label for="dishName">Dish Name *</label>
+                            <input type="text" id="dishName" name="dishName" required placeholder="Name of your signature dish">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dishDescription">Dish Description *</label>
+                            <textarea id="dishDescription" name="dishDescription" rows="6" required placeholder="Describe your signature dish, its cultural significance, ingredients, and what makes it special (minimum 100 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localIngredient">Key Local Ingredient from Your Region *</label>
+                            <input type="text" id="localIngredient" name="localIngredient" required placeholder="e.g., Gouda cheese, Hungarian paprika, Portuguese salt cod">
+                        </div>
+                    </div>
+
+                    <!-- Motivation -->
+                    <div class="form-section">
+                        <h3 class="section-title">Motivation & Vision</h3>
+                        
+                        <div class="form-group">
+                            <label for="motivation">Why do you want to participate in FoodVision? *</label>
+                            <textarea id="motivation" name="motivation" rows="8" required placeholder="Tell us your story. Why is representing your country important to you? What does European culinary unity mean to you? (minimum 200 words)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fusionIdea">Fusion Dish Concept for Fulda *</label>
+                            <textarea id="fusionIdea" name="fusionIdea" rows="6" required placeholder="Describe how you would combine a local Fulda/Rhön ingredient with an element from your country's cuisine (minimum 100 words)"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">Additional Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="dietaryAccommodations">Dietary Restrictions or Allergies</label>
+                            <input type="text" id="dietaryAccommodations" name="dietaryAccommodations" placeholder="e.g., vegetarian, gluten-free, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="languagesSpoken">Languages Spoken *</label>
+                            <input type="text" id="languagesSpoken" name="languagesSpoken" required placeholder="e.g., English, Dutch, German">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="availability" required>
+                                I confirm my availability for September 19-20, 2026 in Fulda, Germany *
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="mediaConsent" required>
+                                I consent to being photographed and filmed for promotional purposes *
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="termsAccepted" required>
+                                I have read and agree to the FoodVision terms and conditions *
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalComments">Additional Comments or Questions</label>
+                        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Anything else you'd like us to know?"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="hideForm()">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Partner Form -->
+            <div id="partner-form" class="application-form" style="display: none;">
+                <div class="form-header">
+                    <h2>Partnership Inquiry</h2>
+                    <p>Let's work together to make FoodVision 2026 a success</p>
+                </div>
+
+                <form id="partnerForm" onsubmit="handleSubmit(event, 'partner')">
+                    <div class="form-section">
+                        <h3 class="section-title">Organization Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="orgName">Organization Name *</label>
+                            <input type="text" id="orgName" name="orgName" required placeholder="Company or organization name">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="partnerType">Partnership Type *</label>
+                                <select id="partnerType" name="partnerType" required>
+                                    <option value="">Select partnership type</option>
+                                    <option value="presenting">Presenting Partner</option>
+                                    <option value="official">Official Partner</option>
+                                    <option value="media">Media Partner</option>
+                                    <option value="airline">Official Airline</option>
+                                    <option value="supplier">Supplier/Vendor</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry *</label>
+                                <input type="text" id="industry" name="industry" required placeholder="e.g., Food & Beverage, Tourism, Media">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="orgWebsite">Organization Website *</label>
+                            <input type="url" id="orgWebsite" name="orgWebsite" required placeholder="https://yourcompany.com">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Contact Person</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactFirstName">First Name *</label>
+                                <input type="text" id="contactFirstName" name="contactFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactLastName">Last Name *</label>
+                                <input type="text" id="contactLastName" name="contactLastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">Email *</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone *</label>
+                                <input type="tel" id="contactPhone" name="contactPhone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position">Position/Title *</label>
+                            <input type="text" id="position" name="position" required placeholder="e.g., Marketing Director, CEO">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Partnership Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="partnershipGoals">Partnership Goals *</label>
+                            <textarea id="partnershipGoals" name="partnershipGoals" rows="6" required placeholder="What would you like to achieve through this partnership?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="proposedContribution">Proposed Contribution</label>
+                            <textarea id="proposedContribution" name="proposedContribution" rows="4" placeholder="What can you bring to FoodVision? (financial support, products, services, media coverage, etc.)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partnerComments">Additional Information</label>
+                            <textarea id="partnerComments" name="partnerComments" rows="4" placeholder="Any other details you'd like to share"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="hideForm()">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- General Contact Form -->
+            <div id="general-form" class="application-form" style="display: none;">
+                <div class="form-header">
+                    <h2>General Contact</h2>
+                    <p>Get in touch with the FoodVision team</p>
+                </div>
+
+                <form id="generalForm" onsubmit="handleSubmit(event, 'general')">
+                    <div class="form-section">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="genFirstName">First Name *</label>
+                                <input type="text" id="genFirstName" name="genFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="genLastName">Last Name *</label>
+                                <input type="text" id="genLastName" name="genLastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="genEmail">Email *</label>
+                                <input type="email" id="genEmail" name="genEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="genPhone">Phone</label>
+                                <input type="tel" id="genPhone" name="genPhone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Brief subject of your inquiry">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="8" required placeholder="Your message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="hideForm()">Cancel</button>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="success-message" class="success-message" style="display: none;">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h2>Application Submitted Successfully!</h2>
+                <p>Thank you for your interest in FoodVision 2026. We've received your application and will review it carefully.</p>
+                <p>You should receive a confirmation email shortly. We'll be in touch within 2-3 weeks.</p>
+                <button class="btn-primary" onclick="location.reload()">Submit Another Application</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        function showForm(formType) {
+            // Hide all forms
+            document.getElementById('participant-form').style.display = 'none';
+            document.getElementById('partner-form').style.display = 'none';
+            document.getElementById('general-form').style.display = 'none';
+            
+            // Hide type selection
+            document.querySelector('.application-types').style.display = 'none';
+            
+            // Show selected form
+            document.getElementById(formType + '-form').style.display = 'block';
+            
+            // Smooth scroll to form
+            setTimeout(() => {
+                document.getElementById(formType + '-form').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 100);
+        }
+
+        function hideForm() {
+            // Hide all forms
+            document.getElementById('participant-form').style.display = 'none';
+            document.getElementById('partner-form').style.display = 'none';
+            document.getElementById('general-form').style.display = 'none';
+            
+            // Show type selection
+            document.querySelector('.application-types').style.display = 'grid';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleSubmit(event, formType) {
+            event.preventDefault();
+            
+            // Hide form
+            document.getElementById(formType + '-form').style.display = 'none';
+            
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Smooth scroll to success message
+            setTimeout(() => {
+                document.getElementById('success-message').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 100);
+            
+            // In real implementation, send form data to server
+            console.log('Form submitted:', formType);
+            console.log('Form data:', new FormData(event.target));
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
